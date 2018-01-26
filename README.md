@@ -1,75 +1,55 @@
-# Learn Nightwatch: Complete Beginners Tutorial
+# 学会 Nightwatch: 初级教程
 
 
-_**Automate** your **acceptance tests** and run them in **real browsers**_!
+_让你的**验收测试**在**真实浏览器**中**自动化**运行_!
 
 ![nightwatch-logo-with-slogan](https://cloud.githubusercontent.com/assets/194400/16045809/099207e2-3242-11e6-99d4-99b227d7a38a.png)
 
-<div align="center">
+## _为什么_?
 
-[![Codeship Build Status](https://img.shields.io/codeship/d9151e40-1473-0134-47e0-12348d1f3442.svg?style=flat-square)](https://codeship.com/projects/157818)
-[![Dependency Status](https://img.shields.io/david/dwyl/learn-nightwatch.svg?style=flat-square)](https://david-dm.org/dwyl/learn-nightwatch)
-[![devDependency Status](https://img.shields.io/david/dev/dwyl/learn-nightwatch.svg?style=flat-square)](https://david-dm.org/dwyl/learn-nightwatch#info=devDependencies)
-[![Hit Count](http://hits.dwyl.io/dwyl/learn-nightwatch.svg)](http://hits.dwyl.io/dwyl/learn-nightwatch)
-</div>
-
-## _Why_?
-
-Testing what the people _using_ your application/website will _see_
-and their ability _interact_ with the product is
-(_probably_) the most important part of building a web app/site.
-You can have amazing code, a super-fast backend and gorgeous UI,
-but _none_ of that _matters_ if people are unable to _use_ it
-because of a basic bug!
+测试网站的界面和和交互的响应是构建网站过程中最重要的一个环节.
+你可能高效可扩展可复用的代码，响应极快的后端服务和无可挑剔的UI界面。但如果因为一个最简单的bug而导致用户无法使用你的网站，
+那用户就会觉得它就是一坨屎。
 
 ![dilbert-internet-full](https://cloud.githubusercontent.com/assets/194400/16302737/b0bb3486-3944-11e6-9875-6e691587ccd0.png)
 
-_**User Acceptance Testing**_ (**UAT**) with a tool like Nightwatch (_Selenium_)
-lets you to run real-world scenarios in your Web App which will give
-you _confidence_ that the app _works_ in the chosen device(s)/browser(s).
+_使用Nightwatch (_Selenium_)这样的工具进行**验收测试**_ (**UAT**)，可以让你通过脚本的方式在真实的浏览器中验证你的网站，
+这无疑会提高你对于你的产品在特定设备/浏览器下正常运行的信心。
 
-## _What_?
+## _用什么_?
 
-_**Automated Acceptance Testing** using **Real Browsers**_.
+_使用**真实的浏览器** 进行 **验收测试**_.
 
-Nightwatch is _quick_ to setup and the tests/scenarios are _easy_ to write.
+Nightwatch 是一个设置快速，并且测试脚本极易编写的一个工具。
+> 我们 _尽可能_ 的通读了所有关于Nightwatch的教程、博客、文档（包含 mailing list 和 StackOverflow上的问答）
+并把我们所掌握的内容浓缩成了一份开发指南。我希望你们觉得它对您有所帮助，并决定使用它测试您的应用的网站。
+如果遇到困难可以通过issue给我们 [_**反馈**_](https://github.com/dwyl/learn-nightwatch/issues)
 
-> We _exhaustively_ read through all the tutorials, blog posts and documentation
-for Nightwatch (_including the mailing list & StackOverflow Q&A_)
-and have condensed our findings into this step-by-step guide.  
-We hope you find it _useful_ and decide to use it for your web app/site!  
-_**Please**_ give us _**feedback**_ and if you _get stuck_,
-[_**tell us!**_](https://github.com/dwyl/learn-nightwatch/issues)
+#### 相关链接
 
-#### Background Links
-
-+ Nightwatch website: http://nightwatchjs.org/
++ Nightwatch 官网: http://nightwatchjs.org/
 + Github: https://github.com/nightwatchjs/nightwatch
-+ Guide/docs: https://github.com/nightwatchjs/nightwatch-docs
-(_don't be put off by the lack of docs, we're here to help if you get stuck!_)
-+ Configuration file settings: http://nightwatchjs.org/guide#settings-file
++ 指南/文档: https://github.com/nightwatchjs/nightwatch-docs
++ 文件配置: http://nightwatchjs.org/guide#settings-file
 
-## _Who_?
+## _谁来使用_?
 
-Who should learn/use Nightwatch?
+谁应该学习并使用 Nightwatch?
 
-+ **Developers** - People writing code, building web apps needing to
-check that _everything_ works as expected.
-+ **QA** - Quality Assurance people who have to _manually "click-test"_ apps/sites.
-+ "**Testers**" - Many organisations _still_ have people who's job
-is to write tests for software. If you describe yourself as a "Tester"
-and want an _easier/faster_ way to write your acceptance tests, read on!
++ **开发者** - 想要通过自动化测试手段验证自己缩写代码的开发者.
++ **QA** - 需要手工测试网站的QA人员.
++ **测试人员** - 如果你是网站的测试人员，想要一种更好的编写自动化测试脚本的工具，使用它吧
 
-## _How_?
+## _如何使用_?
 
-### _Quick Start (5mins)_
+### _快速开始 (5分钟)_
 
-_**Try it**_ on your local machine in 5 mins by following these _**3 easy steps**_:
+_**尝试一下**_ 通过以下三个简单的步骤进行你的测试:
 
 
-### 1. Clone
+### 1. 克隆工程
 
-Clone the repository by _copy-pasting_ the following command into your terminal:
+通过以下的代码，在命令行中克隆以上工程
 
 ```sh
 git clone https://github.com/dwyl/learn-nightwatch.git && cd learn-nightwatch && cp sample.env .env
@@ -77,116 +57,68 @@ git clone https://github.com/dwyl/learn-nightwatch.git && cd learn-nightwatch &&
 
 > Note: if you're _curious_ what that last part is, see: https://github.com/dwyl/env2
 
-### 2. Install<sup>1</sup>
+### 2. 安装依赖<sup>1</sup>
 
-Install the *required* dependencies
-including Selenium Server and `chromedriver`:
+通过命令安装Selenium服务器和chrome驱动程序：
 
 ```sh
-npm install
+yarn
 ```
 
 
-### 3. Run (_tests_)<sup>2</sup>
+### 3. 运行 (_测试集_)<sup>2</sup>
 
-Run the Nightwatch tests:
+运行预置的Nightwatch 测试脚本:
 
 ```sh
-npm test
+yarn test
 ```
 
 
-You should expect to see:  
+你预计会看到:  
 ![learn-nightwatch-console-output-success](https://cloud.githubusercontent.com/assets/194400/16376918/f2d9f8c0-3c5a-11e6-96c4-88e0bdb44638.png)
 
-Once you see the tests pass you are well on your way
-to testing with Nightwatch!
+当你看到一堆测试用例通过，则说明你已配置成功可以开始使用Nightwatch进行测试了
 
 
-<sup>1</sup><small>This _assumes_ you have node.js installed.
-If not, https://nodejs.org/en/download/ </small>  
-<sup>2</sup><small>Selenium Requires Java/JDK see: [Java Installation section](https://github.com/dwyl/learn-nightwatch#installing-java-runtime-environment-jre) below. (_don't worry, you'll be up-and-running shortly..._!)  
-Once you have Java installed re-run the Nightwatch tests (`npm test`).</small>
+<sup>1</sup><small>执行以上的操作之前 _请确保_ 您已经安装了nodejs.
+如果没有请访问, https://nodejs.org/en/download/ </small>  
+<sup>2</sup><small>Selenium 需要本机安装 Java/JDK 参见: [Java Installation section](https://github.com/dwyl/learn-nightwatch#installing-java-runtime-environment-jre)</small>
 
 <br />
-- - - - - - -
-## *Step-by-Step Tutorial to end to end test on your OWN PROJECT*
 
-Now that you have had a _taste_ for running tests with Nightwatch,
+
+## *按照E2E测试教程，测试你的工程*
+
+现在你已经试过使用Nightwatch运行测试用例了
+让我们按照如下步骤把nightwatch集成到你的工程之中
 let's walk through each of the steps to get this working in **_your_ project**.
 
-### Installation (_in detail_)
+### 安装 (_in detail_)
 
-#### 1) Make sure you have Java(_Runtime Environment JRE_) installed
+#### 1) 确保已经安装了Java环境
 
-While we prefer _not_ to run `Java` on our machines for
-[_security reasons_](http://krebsonsecurity.com/tag/java/) Selenium is _still_
-the best way of running tests in _real_ browsers.
+#### 2) 运行 `cd` 进入你的工程
 
-You can check by typing
-`
-java -version
-`
-into your terminal and you should see your version number if you have Java installed.
+#### 3) 安装 `nightwatch`
 
-> How do I install Java? https://www.java.com/en/download/help/download_options.xml
-> pick your Operating System and follow the instructions
-
-##### Mac OSX? (_use homebrew_)
-
-If you haven't updated `brew` in a while, do that first:
-```sh
-brew update
-```
-That will install [`cask`](https://caskroom.github.io/) which is now _part_ of Homebrew.
-
-Now you can install Java:
-```sh
-brew cask install java
-```
-You should see something like this:
-![install-java-with-homebrew-cask](https://cloud.githubusercontent.com/assets/194400/16007040/296f1bfc-3168-11e6-8009-8f39b715239d.png)
-
-> See: [http://stackoverflow.com/questions/24342886/how-to-**install-java-8**-on-**mac**](http://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac)
-
-#### 2) `cd` into your project
-
-#### 3) Install `nightwatch`
-
-First install the `nightwatch` node.js module from NPM:
 
 ```sh
-npm install nightwatch --save-dev
+yarn add nightwatch
 ```
 
-> <small>**Note**: while the Nightwatch docs instruct to install _globally_ (`-g`),
-we _prefer_ to always install devDependencies _locally_ to the project
-and list them _explicitly_ in `package.json` so it's _clear_ to everyone
-viewing/using the project _exactly_ which version is required to run the tests. </small>
-
-#### 4) Install `selenium-server` and
-
-In order to run Browser tests Nightwatch uses [Selenium](http://www.seleniumhq.org/).
-We _prefer_ to _automate_ the installation of Selenium using
-[`selenium-server`](https://www.npmjs.com/package/selenium-server)
-which ensures that everyone on our team always has the latest version.
-
+#### 4) 安装 `selenium-server`
 ```sh
-npm install selenium-server --save-dev
+yarn add selenium-server
 ```
 
-#### 5) Configuration
+#### 5) 配置
 
-Once you've installed `nightwatch`, you will need to create a configuration file.  
-_Some_ Nightwatch tutorials use a `nightwatch.json` file;
-this is good for the most _basic_ cases
-but if you want to use variables in your
-configuration we _recommend_ using a `.js` file;
-_specifically_ called `nightwatch.conf.js`. Save this file to your project directory.
-
-You can copy over our basic configuration saved in nightwatch.conf.BASIC.js: [`nightwatch.conf.BASIC.js`](https://github.com/dwyl/learn-nightwatch/blob/master/nightwatch.conf.BASIC.js)
-
-Or copy the following into a file called nightwatch.conf.BASIC.js
+当你决定使用`nightwatch`之后,你需要创建一个对应的配置文件. 
+ 
+建议您把它命名为 `nightwatch.conf.js`. 并保存到你的项目中.
+你也可以拷贝我工程里的默认配置文件 nightwatch.conf.BASIC.js: [`nightwatch.conf.BASIC.js`](https://github.com/dwyl/learn-nightwatch/blob/master/nightwatch.conf.BASIC.js)
+或者拷贝下面的代码段并粘贴到 nightwatch.conf.BASIC.js之中
 
 ```js
 require('env2')('.env'); // optionally store your Evironment Variables in .env
@@ -265,22 +197,22 @@ We have a slightly more _evolved_ `nightwatch.conf.js` (_with Saucelabs_) see:
 [github.com/dwyl/learn-nightwatch/**nightwatch.conf.js**](https://github.com/dwyl/learn-nightwatch/blob/master/nightwatch.conf.js)
 
 
-#### 6) Running config file
+#### 6) 运行配置文件
 
-You will need to run the config file you created to download the Selenium driver.
+你需要运行以下命令，以安装相应的依赖
 
 ```sh
 node nightwatch.conf.BASIC.js
 ```
 
-#### 7) Create Your Nightwatch Test
+#### 7) 创建你的 Nightwatch 测试用例
 
-Nightwatch "looks" for tests in the `/test` folder of your project by default;
-you can change this to whatever you prefer. We keep our Nightwatch tests in `test/e2e`.
+Nightwatch 会默认查找所有 `/test` 目录下的文件;
+你可以任意设置，我们默认设置指向了`test/e2e`文件夹.
 
-This is the _simplest_ test you can write for Nightwatch.
+下面是一个_最简单_ 的测试用例.
 
-Assuming you're using the same folder structure as we are (tests in `test/e2e`), create a file named `guineaPig.js` inside that folder, containing the following code:
+假设你们的目录和我项目中的一致, 在test/e2e下创建一个名为 `guineaPig.js`的文件，并粘贴以下代码:
 
 ```js
 var config = require('../../nightwatch.conf.BASIC.js');
@@ -297,12 +229,16 @@ module.exports = { // adapted from: https://git.io/vodU0
 };
 ```
 
-> See: [github.com/dwyl/learn-nightwatch/**test/e2e**](https://github.com/dwyl/learn-nightwatch/tree/master/test/e2e)
+> 参见: [github.com/dwyl/learn-nightwatch/**test/e2e**](https://github.com/dwyl/learn-nightwatch/tree/master/test/e2e)
 
-#### 8) Run your Test
+#### 8) 运行你的测试
 
-Depending on what you named your configuration file,
-run it with a command _resembling_ the following:
+在工程的package.json中添加如下代码：
+```sh
+"scripts": {
+    "test": "./node_modules/.bin/nightwatch --env local"
+}
+```
 
 ```sh
 node_modules/.bin/nightwatch --config nightwatch.conf.BASIC.js
