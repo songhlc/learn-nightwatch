@@ -5,9 +5,11 @@ const PKG = require('./package.json'); // so we can get the version of the proje
 const SCREENSHOT_PATH = "./screenshots/" + PKG.version + "/";
 
 const config = { // we use a nightwatch.conf.js file so we can include comments and helper functions
+  "urlprefix": "http://yc.yonyou.com",
   "src_folders": [
     "test/e2e"     // we use '/test' as the name of our test directory by default. So 'test/e2e' for 'e2e'.
   ],
+  "custom_commands_path": "./test/customcommand",
   "output_folder": "./reports", // reports (test outcome) output by Nightwatch
   "selenium": {
     "start_process": true,
